@@ -1,0 +1,13 @@
+Resources that helped to build this software
+https://github.com/lucassha/youtube-containers-tutorial
+https://www.youtube.com/playlist?list=PLLnx2hDbasCmseHwZV34ijxxSb2Vlyxmx
+https://www.youtube.com/watch?v=pKd0Rpw7O48
+
+React & Express Starter Pack For Full Stack Development
+https://youtu.be/v0t42xBIYIs
+
+Database Schema
+http://www.webassist.com/tutorials/Free-eCommerce-MySQL-Database
+
+For my system I am running the older version of npm so this is how I have to install the react client
+npm install -g create-react-app

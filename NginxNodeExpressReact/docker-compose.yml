@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  db:
+    build: ./db
+    environment:
+      MYSQL_DATABASE: Chinook
+      MYSQL_ROOT_PASSWORD: supersecret
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: supersecret
+      DATABASE_HOST: db
+
+  web:
+    build: ./web
+    environment:
+      DATABASE_HOST: db
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: Chinook
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: supersecret
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    restart: on-failure 
+
+  client:
+    build: ./web/client
+    expose:
+      - "3000"
+    ports:
+      - "3000:3000"
+
+  nginx:
+    build: ./nginx
+    container_name: nginx-proxy
+    ports:
+      - 8080:8080
+      - 443:443
+#     networks:
+#       - app-network
+
+# networks:
+#   app-network:
+#     driver: bridge
